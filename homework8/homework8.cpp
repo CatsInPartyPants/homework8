@@ -177,11 +177,12 @@ int main()
     //task 5
     //  Игра Кубики
     
+    /*
     int menu_choose;
     int computer_score;
     int user_score;
     bool move = NULL;
-    
+    int temp;    
 
     cout << "Игра Кубики!\n\n";
     cout << "Меню:\n";
@@ -199,10 +200,12 @@ int main()
         srand(time(NULL));
         while (true) {
             cout << "Компьютер бросает кубик: \n";
-            Sleep(rand() % 500);
+            Sleep(2000);
             computer_score = cubic_draw(1 + rand() % 5);
             cout << "Пользователь бросает кубик: \n";
-            Sleep(rand() % 800);
+            cout << "Введите цифру ->\n";
+            cin >> temp;
+            Sleep(2000);
             user_score = cubic_draw(1 + rand() % 5);
             if (computer_score > user_score) {
                 cout << "Первый ход за компьютером!\n";
@@ -223,10 +226,10 @@ int main()
         if (move == false) {
             for (int i = 0; i < 3; i++) {
                 cout << "Бросок компьютера номер " << i + 1 << "." << "Компьютер набрал следующее количество очков: " << computer_score << endl;
-                Sleep(1000);
+                Sleep(2000);
                 for (int j = 0; j < 2; j++) {
                     computer_score += cubic_draw(1 + rand() % 5);
-                    Sleep(1500);
+                    Sleep(2000);
                 }
                 system("CLS");
             }
@@ -235,7 +238,9 @@ int main()
 
             for (int i = 0; i < 3; i++) {
                 cout << "Бросок пользователя номер " << i + 1 << "." << "Пользователь набрал следующее количество очков: " << user_score << endl;
-                Sleep(1000);
+                cout << "Введите цифру ->\n";
+                cin >> temp;
+                Sleep(2000);
                 for (int j = 0; j < 2; j++) {
                    user_score += cubic_draw(1+rand() % 5);
                     Sleep(1500);
@@ -248,7 +253,9 @@ int main()
         else if (move == true) {
             for (int i = 0; i < 3; i++) {
                 cout << "Бросок пользователя номер " << i + 1 << "." << "Пользователь набрал следующее количество очков: " << user_score << endl;
-                Sleep(1000);
+                cout << "Введите цифру ->\n";
+                cin >> temp;
+                Sleep(2000);
                 for (int j = 0; j < 2; j++) {
                     user_score += cubic_draw(1 + rand() % 5);
                     Sleep(1500);
@@ -286,7 +293,7 @@ int main()
         }
         else if (user_score > computer_score) {
             char user_win[] = "Победа за Вами!";
-            cout << "\t\t\t";
+            cout << "\n\t\t\t";
             for (int i = 0; i < 15; i++) {
                 cout << user_win[i];
                 Sleep(200);
@@ -299,9 +306,80 @@ int main()
     }
     else {
         cout << "Всего хорошего!\n";
-    }
+    }*/
     
+
+    //task 6
+    
+    
+    int dif_lvl; // уровень сложности
+    int lives;// количество жизней
+    int random_number;// рандомно сгенерированное число
+    int user_guess=0;//предположение пользователя
+    int temp;
+    int coef;
+
+    cout << "\t\t\t\tИгра \"GUESS MY NUMBER\"" << endl;
+    cout << "Возможны два уровня сложности: \n\n";
+    cout << "Первый уровень сложности, загаданное число в диапазоне от 1 до 10\n";
+    cout << "Второй уровень сложности, загаданное число в диапазоне от 10 до 100\n";
+    cout << "Выберете уровень сложности 1 или 2 ->";
+    cin >> dif_lvl;
+
+    //выбираем уровень сложности
+    while (true) {
+        if (dif_lvl != 1 && dif_lvl != 2) {
+            cout << "Уровень сложности выбран не верно! Введите 1 или 2 ->\n";
+            cin >> dif_lvl;
+        }
+        else {
+            break;
+        }
+    }
+
+    // устанавливаем количество жизней и загадываем рандомное число
+    srand(time(NULL));
+    if (dif_lvl == 1) { lives = 5; random_number = rand() % 10 + 1; coef = 5; }
+    if (dif_lvl == 2) { lives = 25; random_number = rand() % 100 + 10; coef = 10; }
+
+    //цикл игры
+    while (lives >= 0) {
+        if (lives == 0) {
+            system("CLS");
+            cout << "Вы проиграли! Ха-ха\n";
+            break;
+        }
+        cout << "Количество ваших жизней: " << lives << endl;
+        cout << "Попытайтесь угадать число: ";
+        cin >> user_guess;
+        system("CLS");
+        
+        if (user_guess != random_number && user_guess != -1) {
+            cout << "Вы не угадали!\n";
+            cout << "Вы можете воспользоваться подсказкой!\n";
+            cout << "Она стоит 1 жизнь, для того, чтобы воспользоваться, введите -1\n";
+            lives--;
+        }
+        else if (user_guess == random_number) {
+            cout << "Поздравляю! вы победили! Ваш счет: " << lives * coef << endl;
+            break;
+        }
+        else if (user_guess == -1) {
+            lives--;
+            cout << "Вы воспользовались подсказкой!\n";
+            if (temp > random_number) {
+                cout << "Последнее ваше предположение " << temp << " больше загаданного числа!" << endl;
+            }
+            else if (temp < random_number) {
+                cout << "Последнее ваше предположение " << temp << " меньше загаданного числа!" << endl;
+            }
+        }
+        temp = user_guess;
+        }
+        
+        
 }
+
 
 void line_draw(const char ch, int choose, int speed) {
     int sp;
