@@ -3,6 +3,8 @@
 #include <ctime>
 #include <Windows.h>
 
+#pragma execution_character_set("utf-8")
+
 void line_draw(const char, int, int);
 int cubic_draw(int);
 
