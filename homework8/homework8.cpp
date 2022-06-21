@@ -3,7 +3,6 @@
 #include <ctime>
 #include <Windows.h>
 
-
 void line_draw(const char, int, int);
 int cubic_draw(int);
 
