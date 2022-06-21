@@ -17,7 +17,7 @@ int main()
     const int SIZE = 10;
 
     //task 1
-    /*
+    cout << "ЗАДАНИЕ № 1" << endl;
     std::cout << "Задание 1\n\n";
 
     int int_arr[SIZE];
@@ -38,11 +38,11 @@ int main()
     }
 
     std::cout << "Max: " << max << ", " << "Min: " << min << std::endl;
-    */
+    
 
     //task 2
 
-    /*
+    cout << "ЗАДАНИЕ № 2" << endl;
     std::cout << "Задание 2\n\n";
 
     int int_arr2[SIZE];
@@ -67,12 +67,12 @@ int main()
             summ += int_arr2[i];
     }
     cout << summ << endl;
-    */
+    
     
 
     //task 3
 
-    /*
+    cout << "ЗАДАНИЕ № 3" << endl;
     double month_profit[12];
     int min_diap, max_diap;
     int min_profit, max_profit;
@@ -104,12 +104,12 @@ int main()
     cout << "В диапазоне с " << min_diap + 1 << " месяца по " << max_diap + 1 << " месяц: \n";
     cout << "Минимальная прибыль была в " << min_month << " месяц и составила $" << min_profit << "." << endl;
     cout << "Максимальная прибыль была в " << max_month << " месяц и составила $" << max_profit << "." << endl;
-    */
+    
 
 
     //task 4
 
-    /*
+    cout << "ЗАДАНИЕ № 4" << endl;
     const int SIZE_N = 10;
     int array4[SIZE_N]{ 10,4,13,-5,-1000,4,-10,1000,-50,20 };
     int summ_negative=0; // сумма отрицательных
@@ -156,12 +156,12 @@ int main()
     cout << "1. Сумма отрицательных элементов в массиве: " << summ_negative << ".\n"
         << "2. Произведение между минимальным и максимальным элементами массива: " << product_between_minmax << ".\n"
         << "3. Произведение элементов с четными номерами: " << even_product << ".\n"
-        << "4. Сумма Ээлементов между первым и последним отрицательными элементами: " << summ_between_negative << endl;*/
+        << "4. Сумма Ээлементов между первым и последним отрицательными элементами: " << summ_between_negative << endl;
     
-    // task 4
+    // task 5
     // вывод линии
 
-    /*
+    cout << "ЗАДАНИЕ № 5" << endl;
     char simbol;
     int ver_or_hor;
     int speed;
@@ -172,12 +172,12 @@ int main()
     cout << "Выберете скорость появления линии, от 1(самая быстрая) до 3(самая медленная) ->";
     cin >> speed;
     line_draw(simbol, ver_or_hor, speed);
-    */
-
-    //task 5
-    //  Игра Кубики
     
-    /*
+
+    //task 6
+    //  Игра Кубики
+    cout << "ЗАДАНИЕ № 6" << endl;
+    
     int menu_choose;
     int computer_score;
     int user_score;
@@ -306,17 +306,18 @@ int main()
     }
     else {
         cout << "Всего хорошего!\n";
-    }*/
+    }
     
 
-    //task 6
+    //task 7
     
-    
+    cout << endl << "ЗАДАНИЕ № 7" << endl;
+
     int dif_lvl; // уровень сложности
     int lives;// количество жизней
     int random_number;// рандомно сгенерированное число
     int user_guess=0;//предположение пользователя
-    int temp;
+    int temp1;
     int coef;
 
     cout << "\t\t\t\tИгра \"GUESS MY NUMBER\"" << endl;
@@ -339,8 +340,8 @@ int main()
 
     // устанавливаем количество жизней и загадываем рандомное число
     srand(time(NULL));
-    if (dif_lvl == 1) { lives = 5; random_number = rand() % 10 + 1; coef = 5; }
-    if (dif_lvl == 2) { lives = 25; random_number = rand() % 100 + 10; coef = 10; }
+    if (dif_lvl == 1) { lives = 5; random_number = 1+rand() % (10 - 1); coef = 5; }
+    if (dif_lvl == 2) { lives = 25; random_number = 10+rand() % (100 - 10); coef = 10; }
 
     //цикл игры
     while (lives >= 0) {
@@ -367,16 +368,160 @@ int main()
         else if (user_guess == -1) {
             lives--;
             cout << "Вы воспользовались подсказкой!\n";
-            if (temp > random_number) {
-                cout << "Последнее ваше предположение " << temp << " больше загаданного числа!" << endl;
+            if (temp1 > random_number) {
+                cout << "Последнее ваше предположение " << temp1 << " больше загаданного числа!" << endl;
             }
-            else if (temp < random_number) {
-                cout << "Последнее ваше предположение " << temp << " меньше загаданного числа!" << endl;
+            else if (temp1 < random_number) {
+                cout << "Последнее ваше предположение " << temp1 << " меньше загаданного числа!" << endl;
             }
         }
-        temp = user_guess;
+        temp1 = user_guess;
         }
         
+        
+
+    // task 8
+
+    cout << "ЗАДАНИЕ № 8" << endl;
+
+    int total_points_7 = 0;
+    int points_for_round_7;
+    int dif_lvl_7; // уровень сложности
+    int lives_7 = 1;// количество жизней
+    int random_number_7;// рандомно сгенерированное число
+    int user_guess_7 = 0;//предположение пользователя
+    int temp_7;
+    int coef_7;
+    system("CLS");
+    
+    cout << "Начало игры!\n\n";
+
+    for (int i = 0; i < 3; i++) 
+    {
+        lives_7 = 6;
+        random_number_7 = 1 + rand() % (10 - 1); 
+        coef_7 = 5;
+
+        while(lives_7 >= 0)
+        {
+            if (lives_7 == 0) 
+            {
+                system("CLS");
+                cout << "Loose..\n";
+                cout << "Общий счет: " << total_points_7 << endl;
+                break;
+            }
+            cout << "Уровень сложности 1, Раунд " << i + 1 << "." << endl;
+            cout << "Количество ваших жизней: " << lives_7 << endl;
+            cout << "Попытайтесь угадать число: ";
+            cin >> user_guess_7;
+            system("CLS");
+            if (user_guess_7 != random_number_7 && user_guess_7 != -1)
+            {
+                cout << "Вы не угадали!\n";
+                cout << "Вы можете воспользоваться подсказкой!\n";
+                cout << "Она стоит 1 жизнь, для того, чтобы воспользоваться, введите -1\n";
+                lives_7--;
+            }
+            else if (user_guess_7 == random_number_7)
+            {
+                total_points_7 += lives_7 * coef_7;
+                cout << "Поздравляю! вы победили! Ваш счет: "<< total_points_7 << ". В этом раунде вы заработали " << lives_7 * coef_7 << " очков." << endl;
+                break;
+            }
+            else if (user_guess_7 == -1) 
+            {
+                lives_7--;
+                cout << "Вы воспользовались подсказкой!\n";
+                if (temp_7 > random_number_7) {
+                    cout << "Последнее ваше предположение " << temp_7 << " больше загаданного числа!" << endl;
+                }
+                else if (temp_7 < random_number_7) {
+                    cout << "Последнее ваше предположение " << temp_7 << " меньше загаданного числа!" << endl;
+                }
+            }
+            temp_7 = user_guess_7;
+        }
+        if (lives_7 <= 0) 
+        {
+            break;
+        }
+        else 
+        {
+            continue;
+        }
+    }
+
+    // начало второго раунда
+    if (lives_7 > 0)
+    {
+        char answer;
+        cout << "Поздравляем! Вы прошли во второй раунд!\n";
+        cout << "Желаете сыграть? y/n";
+        cin >> answer;
+        if (answer == 'n')
+        {
+            cout << "Всего хорошего!\n";
+        }
+        else 
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                lives_7 = 25;
+                random_number_7 = 10 + rand() % (100 - 10); 
+                coef_7 = 10;
+
+                while (lives_7 >= 0)
+                {
+                    if (lives_7 == 0)
+                    {
+                        system("CLS");
+                        cout << "Loose..\n";
+                        cout << "Общий счет: " << total_points_7 << endl;
+                        break;
+                    }
+                    cout << "Уровень сложности 2, Раунд " << i + 1 << "." << endl;
+                    cout << "Количество ваших жизней: " << lives_7 << endl;
+                    cout << "Попытайтесь угадать число: ";
+                    cin >> user_guess_7;
+                    system("CLS");
+                    if (user_guess_7 != random_number_7 && user_guess_7 != -1)
+                    {
+                        cout << "Вы не угадали!\n";
+                        cout << "Вы можете воспользоваться подсказкой!\n";
+                        cout << "Она стоит 1 жизнь, для того, чтобы воспользоваться, введите -1\n";
+                        lives_7--;
+                    }
+                    else if (user_guess_7 == random_number_7)
+                    {
+                        total_points_7 += lives_7 * coef_7;
+                        cout << "Поздравляю! вы победили! Ваш счет: " << total_points_7 << ". В этом раунде вы заработали " << lives_7 * coef_7 << " очков." << endl;
+                        break;
+                    }
+                    else if (user_guess_7 == -1)
+                    {
+                        lives_7--;
+                        cout << "Вы воспользовались подсказкой!\n";
+                        if (temp_7 > random_number_7) {
+                            cout << "Последнее ваше предположение " << temp_7 << " больше загаданного числа!" << endl;
+                        }
+                        else if (temp_7 < random_number_7) {
+                            cout << "Последнее ваше предположение " << temp_7 << " меньше загаданного числа!" << endl;
+                        }
+                    }
+                    temp_7 = user_guess_7;
+                }
+                if (lives_7 <= 0)
+                {
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+    }
         
 }
 
