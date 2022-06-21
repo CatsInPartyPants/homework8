@@ -4,7 +4,6 @@
 #include <Windows.h>
 
 
-
 void line_draw(const char, int, int);
 int cubic_draw(int);
 
@@ -67,8 +66,7 @@ int main()
             summ += int_arr2[i];
     }
     cout << summ << endl;
-    
-    
+       
 
     //task 3
 
@@ -105,8 +103,6 @@ int main()
     cout << "Минимальная прибыль была в " << min_month << " месяц и составила $" << min_profit << "." << endl;
     cout << "Максимальная прибыль была в " << max_month << " месяц и составила $" << max_profit << "." << endl;
     
-
-
     //task 4
 
     cout << "ЗАДАНИЕ № 4" << endl;
