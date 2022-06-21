@@ -10,6 +10,7 @@ int cubic_draw(int);
 
 int main()
 {
+
     using std::cout;
     using std::cin;
     using std::endl;
